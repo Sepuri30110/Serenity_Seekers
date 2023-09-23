@@ -1,50 +1,54 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, Touchable, View, Image } from 'react-native';
+import { StyleSheet, Text, Touchable, View, Image, Dimensions } from 'react-native';
 import { TouchableOpacity } from 'react-native';
 
 export default function App() {
-
   return (
     <View>
-      <View style={styles.header}>
-        <View style={styles.header1}>
-          <Text style={styles.header1_text}>Self-identifying the mental health status</Text>
+        <View style={styles.header}>
+          <View style={styles.header1}>
+            <Text style={styles.header1_text}>Self-identifying the mental health status</Text>
+          </View>
+          <View style={styles.header2}>
+            <TouchableOpacity>
+              <Text style={styles.header2_text}>SignUp</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.header2_text}>Login</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={styles.header2}>
-          <TouchableOpacity>
-            <Text style={styles.header2_text}>SignUp</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.header2_text}>Login</Text>
-          </TouchableOpacity>
+        <View>
+          <Image source={require("./assets/icon.png")} style={styles.image}/>
         </View>
-      </View>
-      <View style={styles.image}>
-        <img src={require('./assets/icon.png')} />
-      </View>
-      <View style={styles.footer}>
-        <View style={styles.footer1}>
-          <TouchableOpacity>
-            <Text style={styles.footer_text}>Contact US</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.footer_text}>E-mail</Text>
-          </TouchableOpacity>
+        <View style={styles.footer}>
+          <View style={styles.footer1}>
+            <TouchableOpacity>
+              <Text style={styles.footer_text}>Contact US</Text>
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Text style={styles.footer_text}>E-mail</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
     </View>
   );
 }
 
+const x = Dimensions.get("window").width;
+const q = Dimensions.get("window").height;
+const y = q/2 - 125;
+
 const styles = StyleSheet.create({
   header: {
     display: 'flex',
-    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
     backgroundColor: '#666',
     alignItems: 'center',
     width: window.innerWidth,
+    paddingTop: 30,
+    paddingBottom: 30,
     //marginBottom:600,
   },
   header1: {
@@ -57,7 +61,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flex: 1,
     justifyContent: 'flex-end',
-    marginRight:20,
+    marginRight: 20,
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: '20px'
@@ -73,29 +77,30 @@ const styles = StyleSheet.create({
     padding: 3,
   },
   image: {
-    backgroundColor: '#000',
-    width: '250px',
-    height: '250px',
-    marginTop: 100,
-    marginBottom: 100,
-    alignSelf: 'center',
+    display:'flex',
+    flex:1,
+    width: 250,
+    height: 250,
+    alignSelf:'center',
+    marginTop:100
   },
   footer: {
     display: 'flex',
-    flex: 1,
     flexDirection: 'row',
     flexWrap: 'wrap',
-    justifyContent: 'flex-end',
     backgroundColor: '#666',
     alignItems: 'center',
     width: window.innerWidth,
-    //marginBottom:600,
+    paddingTop: 20,
+    paddingBottom: 20,
+    position: 'absolute',
+    bottom: 0,
   },
-  footer1:{
+  footer1: {
     display: 'flex',
     flex: 1,
     justifyContent: 'flex-end',
-    marginRight:20,
+    marginRight: 20,
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: '20px',
